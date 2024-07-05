@@ -29,6 +29,7 @@ fun DimenSpacingScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
+            .background(FireTheme.colors.background)
             .verticalScroll(rememberScrollState())
     ) {
         SpacingAppliedBoxes(
@@ -69,20 +70,21 @@ private fun SpacingAppliedBoxes(
     ) {
         Text(
             text = spacingText,
-            style = FireTheme.typo.h3
+            style = FireTheme.typo.h4,
+            color = FireTheme.colors.onBackground
         )
         HorizontalSpacer(size = 20.dp)
         Row {
             Box(
                 modifier = Modifier
                     .size(80.dp)
-                    .background(Color.Black)
+                    .background(FireTheme.colors.primary)
             )
             HorizontalSpacer(size = spacing)
             Box(
                 modifier = Modifier
                     .size(80.dp)
-                    .background(Color.Black)
+                    .background(FireTheme.colors.primary)
             )
         }
     }
