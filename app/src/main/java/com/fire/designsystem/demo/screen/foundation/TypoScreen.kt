@@ -1,4 +1,4 @@
-package com.fire.designsystem.demo.screen
+package com.fire.designsystem.demo.screen.foundation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
