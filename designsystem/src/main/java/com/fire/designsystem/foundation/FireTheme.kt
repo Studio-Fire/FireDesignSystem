@@ -5,20 +5,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
 import com.fire.designsystem.foundation.color.FireColors
-import com.fire.designsystem.foundation.color.fireDarkColors
-import com.fire.designsystem.foundation.color.fireLightColors
+import com.fire.designsystem.foundation.color.fireColorsDark
+import com.fire.designsystem.foundation.color.fireColorsLight
 import com.fire.designsystem.foundation.dimen.FireDimen
 import com.fire.designsystem.foundation.dimen.fireDimen
 import com.fire.designsystem.foundation.typo.FireTypo
 import com.fire.designsystem.foundation.typo.fireTypo
 
-val LocalFireColors = staticCompositionLocalOf { fireLightColors }
+val LocalFireColors = staticCompositionLocalOf { fireColorsLight }
 val LocalFireTypo = staticCompositionLocalOf { fireTypo }
 val LocalFireDimen = staticCompositionLocalOf { fireDimen }
 
 @Composable
 fun FireTheme(
-    colors: FireColors = if (isSystemInDarkTheme()) fireDarkColors else fireLightColors,
+    colors: FireColors = if (isSystemInDarkTheme()) fireColorsDark else fireColorsLight,
     typo: FireTypo = fireTypo,
     dimen: FireDimen = fireDimen,
     content: @Composable () -> Unit
