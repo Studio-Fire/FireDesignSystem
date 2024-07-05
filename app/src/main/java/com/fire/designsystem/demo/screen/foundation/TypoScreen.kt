@@ -1,5 +1,6 @@
 package com.fire.designsystem.demo.screen.foundation
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,9 +18,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
+import com.fire.designsystem.demo.Screen
 import com.fire.designsystem.demo.component.HorizontalSpacer
 import com.fire.designsystem.demo.ext.PreviewWithUiMode
 import com.fire.designsystem.foundation.FireTheme
+
+fun NavGraphBuilder.addTypoScreen() {
+    composable(Screen.TYPO.name) {
+        TypoScreen()
+    }
+}
 
 @Composable
 fun TypoScreen(
@@ -30,6 +40,7 @@ fun TypoScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
+            .background(FireTheme.colors.background)
             .verticalScroll(rememberScrollState())
     ) {
         StyledTextSet(
@@ -100,17 +111,20 @@ private fun StyledTextSet(
     ) {
         Text(
             text = styleText,
-            style = FireTheme.typo.h3
+            style = FireTheme.typo.h4,
+            color = FireTheme.colors.onBackground
         )
         HorizontalSpacer(size = 20.dp)
         Column {
             Text(
                 text = text,
-                style = style
+                style = style,
+                color = FireTheme.colors.onBackground
             )
             Text(
                 text = text,
-                style = boldStyle
+                style = boldStyle,
+                color = FireTheme.colors.onBackground
             )
         }
     }

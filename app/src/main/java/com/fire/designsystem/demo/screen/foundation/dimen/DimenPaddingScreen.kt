@@ -30,6 +30,7 @@ fun DimenPaddingScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
+            .background(FireTheme.colors.background)
             .verticalScroll(rememberScrollState())
     ) {
         PaddingAppliedBox(
@@ -70,18 +71,19 @@ private fun PaddingAppliedBox(
     ) {
         Text(
             text = paddingText,
-            style = FireTheme.typo.h3
+            style = FireTheme.typo.h4,
+            color = FireTheme.colors.onBackground
         )
         HorizontalSpacer(size = 20.dp)
         Box(
             modifier = Modifier
-                .background(color = Color.Black)
+                .background(color = FireTheme.colors.primary)
                 .padding(padding)
         ) {
             Box(
                 modifier = Modifier
                     .size(80.dp)
-                    .background(Color.White)
+                    .background(color = FireTheme.colors.onPrimary)
             )
         }
     }

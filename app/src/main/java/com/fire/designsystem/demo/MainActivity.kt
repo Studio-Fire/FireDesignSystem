@@ -9,10 +9,10 @@ import com.fire.designsystem.foundation.FireTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         setContent {
             FireTheme {
-
+                FireDesignSystemDemoApp()
             }
         }
     }

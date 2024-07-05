@@ -1,4 +1,4 @@
-package com.fire.designsystem.demo.screen.foundation
+package com.fire.designsystem.demo.screen.foundation.color
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -13,20 +13,21 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.composable
+import com.fire.designsystem.demo.Screen
 import com.fire.designsystem.demo.component.HorizontalSpacer
 import com.fire.designsystem.demo.ext.PreviewWithUiMode
 import com.fire.designsystem.foundation.FireTheme
 
-@Immutable
-data class ColorSet(
-    val name: String,
-    val color: Color
-)
+fun NavGraphBuilder.addColorScreen() {
+    composable(Screen.COLOR.name) {
+        ColorScreen()
+    }
+}
 
 @Composable
 fun ColorScreen(
@@ -35,6 +36,7 @@ fun ColorScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
+            .background(FireTheme.colors.background)
             .verticalScroll(rememberScrollState())
     ) {
         ColorAppliedBoxes(
@@ -122,12 +124,13 @@ private fun ColorAppliedBoxes(
             ) {
                 Text(
                     text = it.name,
-                    style = FireTheme.typo.body1
+                    style = FireTheme.typo.h4,
+                    color = FireTheme.colors.onBackground
                 )
                 HorizontalSpacer(size = 20.dp)
                 Box(
                     modifier = Modifier
-                        .size(width = 150.dp, height = 40.dp)
+                        .size(width = 100.dp, height = 40.dp)
                         .background(it.color)
                 )
             }
