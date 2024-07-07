@@ -60,7 +60,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.fire.designsystem"
                 artifactId = "FireDesignSystem"
-                version = "1.0.0-alpha"
+                version = "0.0.1"
             }
         }
     }
