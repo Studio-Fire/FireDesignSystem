@@ -56,7 +56,7 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            register("release", MavenPublication::class) {
+            create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.fire.designsystem"
                 artifactId = "FireDesignSystem"
