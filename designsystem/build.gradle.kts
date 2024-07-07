@@ -32,12 +32,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-    publishing {
-        singleVariant("release") {
-            withSourcesJar()
-        }
-    }
 }
 
 dependencies {
@@ -59,14 +53,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            register<MavenPublication>("release") {
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            afterEvaluate {
                 from(components["release"])
-                groupId = "com.fire.designsystem"
-                artifactId = "FireDesignSystem"
-                version = "0.0.1"
             }
         }
     }
