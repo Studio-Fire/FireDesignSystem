@@ -2,12 +2,15 @@ package com.fire.designsystem.demo.screen.foundation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
@@ -17,26 +20,24 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.fire.designsystem.demo.Screen
 import com.fire.designsystem.demo.component.HorizontalSpacer
+import com.fire.designsystem.demo.component.VerticalSpacer
 import com.fire.designsystem.demo.ext.PreviewWithUiMode
 import com.fire.designsystem.foundation.theme.FireTheme
 
-fun NavGraphBuilder.addTypoScreen(
+fun NavGraphBuilder.addDimenScreen(
     navController: NavController
 ) {
-    composable(Screen.TYPO.name) {
-        TypoScreen(
+    composable(Screen.DIMEN.name) {
+        DimenScreen(
             onBackPressed = { navController.popBackStack() }
         )
     }
@@ -44,17 +45,15 @@ fun NavGraphBuilder.addTypoScreen(
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TypoScreen(
+fun DimenScreen(
     onBackPressed: () -> Unit
 ) {
-    val text by remember { mutableStateOf("StudioFire") }
-
     Scaffold(
         topBar = {
             TopAppBar(
                 title = {
                     Text(
-                        text = "Typography",
+                        text = "Dimension",
                         color = FireTheme.colorScheme.onBackground,
                         style = FireTheme.typography.headlineSmall
                     )
@@ -79,85 +78,86 @@ fun TypoScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(it)
         ) {
-            TypoItemSet(
-                styleText = "display",
-                text = text,
-                largeStyle = FireTheme.typography.displayLarge,
-                mediumStyle = FireTheme.typography.displayMedium,
-                smallStyle = FireTheme.typography.displaySmall
+            DimenItemSet(
+                dimensionText = "ExtraSmall",
+                dimension = FireTheme.dimension.extraSmall
             )
-            TypoItemSet(
-                styleText = "headline",
-                text = text,
-                largeStyle = FireTheme.typography.headlineLarge,
-                mediumStyle = FireTheme.typography.headlineMedium,
-                smallStyle = FireTheme.typography.headlineSmall
+            DimenItemSet(
+                dimensionText = "Small",
+                dimension = FireTheme.dimension.small
             )
-            TypoItemSet(
-                styleText = "title",
-                text = text,
-                largeStyle = FireTheme.typography.titleLarge,
-                mediumStyle = FireTheme.typography.titleMedium,
-                smallStyle = FireTheme.typography.titleSmall
+            DimenItemSet(
+                dimensionText = "Medium",
+                dimension = FireTheme.dimension.medium
             )
-            TypoItemSet(
-                styleText = "body",
-                text = text,
-                largeStyle = FireTheme.typography.bodyLarge,
-                mediumStyle = FireTheme.typography.bodyMedium,
-                smallStyle = FireTheme.typography.bodySmall
+            DimenItemSet(
+                dimensionText = "Large",
+                dimension = FireTheme.dimension.large
             )
-            TypoItemSet(
-                styleText = "label",
-                text = text,
-                largeStyle = FireTheme.typography.labelLarge,
-                mediumStyle = FireTheme.typography.labelMedium,
-                smallStyle = FireTheme.typography.labelSmall
+            DimenItemSet(
+                dimensionText = "ExtraLarge",
+                dimension = FireTheme.dimension.extraLarge
             )
         }
     }
 }
 
 @Composable
-private fun TypoItemSet(
-    styleText: String,
-    text: String,
-    largeStyle: TextStyle,
-    mediumStyle: TextStyle,
-    smallStyle: TextStyle,
+private fun DimenItemSet(
+    dimensionText: String,
+    dimension: Dp,
     modifier: Modifier = Modifier
 ) {
-    Row(
+    Column(
         modifier = modifier
             .fillMaxWidth()
             .background(FireTheme.colorScheme.background)
-            .padding(20.dp),
-        verticalAlignment = Alignment.CenterVertically
+            .padding(20.dp)
     ) {
         Text(
-            text = styleText,
-            modifier = Modifier.weight(0.2f, true),
-            style = FireTheme.typography.titleMedium,
+            text = dimensionText,
+            style = FireTheme.typography.titleLarge,
             color = FireTheme.colorScheme.onBackground
         )
-        HorizontalSpacer(size = 20.dp)
-        Column(
-            modifier = Modifier.weight(0.8f, true)
+        VerticalSpacer(size = FireTheme.dimension.medium)
+        Row(
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Text(
-                text = text,
-                style = largeStyle,
+                text = "Padding",
+                modifier = Modifier.weight(1f, true),
+                style = FireTheme.typography.titleMedium,
                 color = FireTheme.colorScheme.onBackground
             )
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(FireTheme.colorScheme.primary)
+            )
+            HorizontalSpacer(size = dimension)
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(FireTheme.colorScheme.secondary)
+            )
+        }
+        VerticalSpacer(size = FireTheme.dimension.medium)
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Text(
-                text = text,
-                style = mediumStyle,
+                text = "Spacing",
+                modifier = Modifier.weight(1f, true),
+                style = FireTheme.typography.titleMedium,
                 color = FireTheme.colorScheme.onBackground
             )
-            Text(
-                text = text,
-                style = smallStyle,
-                color = FireTheme.colorScheme.onBackground
+            Box(
+                modifier = Modifier
+                    .size(50.dp)
+                    .background(
+                        color = FireTheme.colorScheme.tertiary,
+                        shape = RoundedCornerShape(dimension)
+                    )
             )
         }
     }
@@ -165,9 +165,9 @@ private fun TypoItemSet(
 
 @PreviewWithUiMode
 @Composable
-private fun PreviewTypoScreen() {
+private fun PreviewDimenScreen() {
     FireTheme {
-        TypoScreen(
+        DimenScreen(
             onBackPressed = {}
         )
     }

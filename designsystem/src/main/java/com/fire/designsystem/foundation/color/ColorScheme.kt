@@ -1,53 +1,17 @@
 package com.fire.designsystem.foundation.color
 
-import androidx.compose.runtime.Immutable
-import androidx.compose.ui.graphics.Color
+import androidx.compose.material3.ColorScheme
 
-@Immutable
-data class FireColors(
-    val primary: Color,
-    val onPrimary: Color,
-    val primaryContainer: Color,
-    val onPrimaryContainer: Color,
-
-    val secondary: Color,
-    val onSecondary: Color,
-    val secondaryContainer: Color,
-    val onSecondaryContainer: Color,
-
-    val tertiary: Color,
-    val onTertiary: Color,
-    val tertiaryContainer: Color,
-    val onTertiaryContainer: Color,
-
-    val background: Color,
-    val onBackground: Color,
-
-    val surface: Color,
-    val onSurface: Color,
-    val surfaceVariant: Color,
-    val onSurfaceVariant: Color,
-
-    val outline: Color,
-    val outlineVariant: Color,
-
-    val error: Color,
-    val onError: Color,
-    val errorContainer: Color,
-    val onErrorContainerColor: Color,
-
-    val surfaceContainer: Color
-)
-
-val fireColorsLight = FireColors(
+val fireColorSchemeLight = ColorScheme(
     primary = primaryLight,
     onPrimary = onPrimaryLight,
     primaryContainer = primaryContainerLight,
     onPrimaryContainer = onPrimaryContainerLight,
+    inversePrimary = inversePrimaryLight,
     secondary = secondaryLight,
     onSecondary = onSecondaryLight,
     secondaryContainer = secondaryContainerLight,
-    onSecondaryContainer = onSecondaryContainerLight,
+    onSecondaryContainer =  onSecondaryContainerLight,
     tertiary = tertiaryLight,
     onTertiary = onTertiaryLight,
     tertiaryContainer = tertiaryContainerLight,
@@ -58,24 +22,35 @@ val fireColorsLight = FireColors(
     onSurface = onSurfaceLight,
     surfaceVariant = surfaceVariantLight,
     onSurfaceVariant = onSurfaceVariantLight,
-    outline = outlineLight,
-    outlineVariant = outlineVariantLight,
+    surfaceTint = primaryLight,
+    inverseSurface = inverseSurfaceLight,
+    inverseOnSurface = inverseOnSurfaceLight,
     error = errorLight,
     onError = onErrorLight,
     errorContainer = errorContainerLight,
-    onErrorContainerColor = onErrorContainerLight,
-    surfaceContainer = surfaceContainerLight
+    onErrorContainer = onErrorContainerLight,
+    outline = outlineLight,
+    outlineVariant = outlineVariantLight,
+    scrim = scrimLight,
+    surfaceBright = surfaceBrightLight,
+    surfaceDim = surfaceDimLight,
+    surfaceContainer = surfaceContainerLight,
+    surfaceContainerHigh = surfaceContainerHighLight,
+    surfaceContainerHighest = surfaceContainerHighestLight,
+    surfaceContainerLow = surfaceContainerLowLight,
+    surfaceContainerLowest = surfaceContainerLowestLight,
 )
 
-val fireColorsDark = FireColors(
+val fireColorSchemeDark = ColorScheme(
     primary = primaryDark,
     onPrimary = onPrimaryDark,
     primaryContainer = primaryContainerDark,
     onPrimaryContainer = onPrimaryContainerDark,
+    inversePrimary = inversePrimaryDark,
     secondary = secondaryDark,
     onSecondary = onSecondaryDark,
     secondaryContainer = secondaryContainerDark,
-    onSecondaryContainer = onSecondaryContainerDark,
+    onSecondaryContainer =  onSecondaryContainerDark,
     tertiary = tertiaryDark,
     onTertiary = onTertiaryDark,
     tertiaryContainer = tertiaryContainerDark,
@@ -86,11 +61,21 @@ val fireColorsDark = FireColors(
     onSurface = onSurfaceDark,
     surfaceVariant = surfaceVariantDark,
     onSurfaceVariant = onSurfaceVariantDark,
-    outline = outlineDark,
-    outlineVariant = outlineVariantDark,
+    surfaceTint = primaryDark,
+    inverseSurface = inverseSurfaceDark,
+    inverseOnSurface = inverseOnSurfaceDark,
     error = errorDark,
     onError = onErrorDark,
     errorContainer = errorContainerDark,
-    onErrorContainerColor = onErrorContainerDark,
-    surfaceContainer = surfaceContainerDark
+    onErrorContainer = onErrorContainerDark,
+    outline = outlineDark,
+    outlineVariant = outlineVariantDark,
+    scrim = scrimDark,
+    surfaceBright = surfaceBrightDark,
+    surfaceDim = surfaceDimDark,
+    surfaceContainer = surfaceContainerDark,
+    surfaceContainerHigh = surfaceContainerHighDark,
+    surfaceContainerHighest = surfaceContainerHighestDark,
+    surfaceContainerLow = surfaceContainerLowDark,
+    surfaceContainerLowest = surfaceContainerLowestDark,
 )
